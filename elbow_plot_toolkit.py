@@ -2,7 +2,6 @@ import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 from kneed import KneeLocator
 
-
 def determine_max_num_try_cluster(coordinate_array):
     # Ask the user to give a number to be the max of times of clustering to
     # try
