@@ -69,6 +69,8 @@ def calculate_optimal_cluster_num(x_axis, wcss):
 
 
 def make_elbow_plot(coordinate_array, max_num_try_cluster):
+    # Generate the elbow plot
+
     x_axis = generate_x_axis(max_num_try_cluster)
     wcss = calculate_inertia(coordinate_array, max_num_try_cluster)
     optimal_cluster_num = calculate_optimal_cluster_num(x_axis, wcss)
