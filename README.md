@@ -14,6 +14,15 @@ This contains several tools to help on travel planning
     * Only a cluster with 3 or more sites will have the cluster drawn on 
       the map
 
+## Notices
+Plotly maps don't have any speciality now since Folium maps are better for 
+this purpose. 
+
 # Travel places planned 
 * NC
   * Chapel Hill 
+    * The data read in for this one is a bit special since this was the 
+      first place to plan. Later places all used the data from Google Map 
+      export rather than manual inputs for higher efficiency. 
+  * Wilmington
+    * Major locations shot in the film Blue Velvet: https://wilmtv.com/production/blue-velvet-1986
