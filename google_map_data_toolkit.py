@@ -157,5 +157,48 @@ def location_df_filter_by_allowed_cities(input_df, city_names_list):
     # substring (mostly in cases for nature preserves)
 
     filtered_df.reset_index(drop=True, inplace=True)
-    filtered_df
     return filtered_df
+
+
+def label_based_on_scraped_category(input_df):
+    # Because the scraped category from Google map is very detailed,
+    # this function further categorized a category into 1 of the
+    # user-defined categories below. The matching can be done partially so
+    # as long as the original category string contains any substring in the
+    # tuples used as keys in label_dict, it'll be matched to that category.
+    # All the other categories that are unmatched with any category will
+    # "Site".
+
+    label_dict = {
+        ('restaurant', 'grill', 'bar'): 'Restaurant',
+        ('garden', 'nature preserve', 'park', 'arboretum'): 'Garden',
+        ('museum'): 'Museum',
+        ('store', 'market', 'shopping mall', 'shop'): 'Store',
+        ('no category', 'building'): 'Site',
+        # All the other categories that I'm
+        # not interested in will also be under this category
+        ('closed'): 'Closed'  # This is for the locations that are "Permanently
+        # closed" and you shouldn't map these locations out on your maps
+    }  # I have to use tuples as keys since they're immutable
+
+    output_df = input_df.copy()
+
+    category_labels = []
+    for extracted_category in output_df['Extracted Category']:
+        lowercase_extracted_category = extracted_category.lower()
+
+        check_list = lowercase_extracted_category.split()
+        check_list.append(lowercase_extracted_category)
+        # lowercase_extracted_category itself also need to be checked
+
+        category = 'Site'
+        for term in check_list:
+            for tuple_key, category_str in label_dict.items():
+                if term in tuple_key:
+                    category = category_str
+                    break
+
+        category_labels.append(category)
+
+    output_df['Category'] = category_labels
+    return output_df
