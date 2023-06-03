@@ -1,2 +1,6 @@
 pandas
 geopy
+selenium
+bs4
+tqdm
+pyperclip
