@@ -3,6 +3,9 @@ from sklearn.cluster import KMeans
 from kneed import KneeLocator
 from tqdm.notebook import tqdm  # Show loop progress
 
+from scrape_google_map_toolkit import sound_notification
+
+
 def determine_max_num_try_cluster(coordinate_array):
     # Ask the user to give a number to be the max of times of clustering to
     # try
@@ -101,4 +104,5 @@ def make_elbow_plot(coordinate_array, max_num_try_cluster):
     )
 
     plt.show()
+    sound_notification()  # Vocally notify the job is done
     return optimal_cluster_num
