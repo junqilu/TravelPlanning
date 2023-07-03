@@ -45,7 +45,8 @@ This contains several tools to help on travel planning
 
 ## Notices
 Plotly maps don't have any speciality now since Folium maps are better for 
-this purpose. 
+this purpose, but I still use the plt map for showing the clusterings as a 
+secondary visualization. 
 
 # Travel places planned 
 * NC
@@ -55,3 +56,5 @@ this purpose.
       export rather than manual inputs for higher efficiency. 
   * Wilmington
     * Major locations shot in the film Blue Velvet: https://wilmtv.com/production/blue-velvet-1986
+    * This is the __1st place__ that all the codes are set to use and can be 
+      used as a template for the later travel planning for other places. 
