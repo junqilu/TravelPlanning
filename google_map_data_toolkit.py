@@ -178,7 +178,8 @@ def label_based_on_scraped_category(input_df):
         # All the other categories that I'm
         # not interested in will also be under this category
         ('closed'): 'Closed'  # This is for the locations that are "Permanently
-        # closed" and you shouldn't map these locations out on your maps
+        # closed" or "Temporarily Closed" and you shouldn't map these
+        # locations out on your maps
     }  # I have to use tuples as keys since they're immutable
 
     output_df = input_df.copy()
