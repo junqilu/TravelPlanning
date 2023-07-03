@@ -33,6 +33,10 @@ This contains several tools to help on travel planning
       text-classification. 
 1. Clustering of all non-restaurant sites and overlap with restaurants
     * All restaurants don't participate in the clustering
+    * Although using the real distance (considering roads) rather than the 
+      straight distance will be more accurate for clustering, doing so 
+      is very complicated. Considering I'm not using a map API, this is 
+      temporally out of the scope of the project. 
 1. Draw out the locations and the clusters on a folium map (like a
    combination of plt scatter plot for clustering and plotly plot for pop out
    labels)
