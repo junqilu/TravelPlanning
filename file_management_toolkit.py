@@ -12,5 +12,8 @@ def judge_create_directory(directory):
             # directory has been successfully created
             sleep(0.5)
 
-    return 0
+        msg = 'Directory {} has been created successfully.'.format(directory)
+    else:
+        msg = 'You already have the directory {}.'.format(directory)
+    return msg
 
