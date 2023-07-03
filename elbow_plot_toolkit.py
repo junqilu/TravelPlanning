@@ -1,6 +1,10 @@
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 from kneed import KneeLocator
+from tqdm.notebook import tqdm  # Show loop progress
+
+from scrape_google_map_toolkit import sound_notification
+
 
 def determine_max_num_try_cluster(coordinate_array):
     # Ask the user to give a number to be the max of times of clustering to
@@ -33,7 +37,7 @@ def calculate_inertia(coordinate_array, max_num_try_cluster):
     # wcss is a list of inertia
 
     wcss = []
-    for k in range(1, max_num_try_cluster + 1):
+    for k in tqdm(range(1, max_num_try_cluster + 1)):
         kmeans = KMeans(
             n_clusters=k,
             init='k-means++',
@@ -100,4 +104,5 @@ def make_elbow_plot(coordinate_array, max_num_try_cluster):
     )
 
     plt.show()
+    sound_notification()  # Vocally notify the job is done
     return optimal_cluster_num
